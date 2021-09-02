@@ -20,7 +20,7 @@
 // }
 //---- end of mystery code----
 let foodChoices = [
-  'pizza',
+  'Pizza',
   'CheeseBurger',
   'Nachos',
   'Tacos',
