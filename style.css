@@ -106,21 +106,20 @@ table {
 }
 
 .guess {
-  position: absolute;
-
+  position: relative;
   background-color: snow;
   padding: 2em;
 }
 
 .submit {
-  position: absolute;
+  position: relative;
   background-color: black;
   color: aqua;
   box-shadow: 5px 5px 5px red;
   font-weight: bold;
   width: 8em;
-  bottom: 5em;
   padding: 1em;
+  margin: 1em auto;
   cursor: pointer;
 }
 
@@ -140,7 +139,6 @@ table {
   position: relative;
   font-weight: bolder;
   font-size: xx-large;
-
   box-sizing: inherit;
   margin: 0;
   padding: 0;
