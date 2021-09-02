@@ -21,12 +21,12 @@
 //---- end of mystery code----
 let foodChoices = [
   'Pizza',
-  'CheeseBurger',
+  'Cheese Burger',
   'Nachos',
   'Tacos',
   'Fish',
-  'HotDogs',
-  'CornDogs',
+  'Hot Dogs',
+  'Corn Dogs',
   'Chicken',
   'Ramen',
 ];
@@ -45,6 +45,8 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
   if (!guess) {
     document.querySelector(`.message`).textContent = `You didn't even guess!`;
     document.querySelector(`body`).style.backgroundColor = `blue`;
+    document.querySelector(`.submit`).style.boxShadow = `5px 5px 5px red`;
+    document.querySelector(`.again`).style.boxShadow = `5px 5px 5px red`;
   } else if (guess === food) {
     document.querySelector(
       `.message`
@@ -60,6 +62,8 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
         document.querySelector(`.score`).textContent = score;
         document.querySelector(`body`).style.backgroundColor = `red`;
         document.querySelector(`.mystery`).style.color = `black`;
+        document.querySelector(`.submit`).style.boxShadow = `5px 5px 5px aqua`;
+        document.querySelector(`.again`).style.boxShadow = `5px 5px 5px aqua`;
       }
     } else {
       document.querySelector(`.message`).textContent = `Better luck next time.`;
@@ -73,6 +77,8 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
       document.querySelector(
         `header`
       ).style.borderBottom = `7px solid aquamarine`;
+      document.querySelector(`.submit`).style.boxShadow = `5px 5px 5px red`;
+      document.querySelector(`.again`).style.boxShadow = `5px 5px 5px red`;
     }
 });
 
@@ -91,7 +97,8 @@ document.querySelector(`.again`).addEventListener(`click`, function () {
   document.querySelector(`.header`).style.color = `cadetblue`;
   document.querySelector(`.mystery`).style.backgroundColor = ``;
   document.querySelector(`header`).style.borderBottom = `7px solid black`;
+  document.querySelector(`.submit`).style.boxShadow = `5px 5px 5px red`;
+  document.querySelector(`.again`).style.boxShadow = `5px 5px 5px red`;
 });
 
-confirm(`This website does not work on mobile.
-Also, the choices in the table are "case sensative" and contain no "spaces"`);
+confirm(`This website does not work well on mobile.`);

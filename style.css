@@ -19,7 +19,7 @@ main {
   position: relative;
   text-align: center;
   width: 100%;
-  color: cadetblue;
+  color: aqua;
   font-size: 10vh;
   animation: header 4s ease;
 }
@@ -27,11 +27,11 @@ main {
 @keyframes header {
   0% {
     transform: translatey(-200%);
-    color: cadetblue;
+    color: aqua;
   }
   100% {
     transform: translatex(0%);
-    color: cadetblue;
+    color: aqua;
   }
 }
 .left {
@@ -83,7 +83,7 @@ th {
 table {
   background-color: black;
   color: aqua;
-
+  width: 100%;
   position: relative;
 }
 
@@ -93,13 +93,14 @@ table {
   top: 0em;
   padding: 1vh;
   border-radius: 5%;
-  background-color: purple;
-  color: rgb(201, 198, 202);
+  background-color: black;
+  color: aqua;
+  box-shadow: 5px 5px 5px red;
   cursor: pointer;
 }
 .again:hover {
-  background-color: rgb(201, 198, 202);
-  color: purple;
+  background-color: aqua;
+  color: black;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -113,7 +114,9 @@ table {
 
 .submit {
   position: absolute;
-  background-color: darkslateblue;
+  background-color: black;
+  color: aqua;
+  box-shadow: 5px 5px 5px red;
   font-weight: bold;
   width: 8em;
   bottom: 5em;
