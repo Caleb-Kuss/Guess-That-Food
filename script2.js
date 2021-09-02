@@ -90,4 +90,4 @@ document.querySelector(`.again`).addEventListener(`click`, function () {
 });
 
 confirm(`This website does not work on mobile.
-Also, the choices in the table are "case sensative"`);
+Also, the choices in the table are "case sensative" and contain no "spaces"`);
