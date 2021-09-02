@@ -89,5 +89,5 @@ document.querySelector(`.again`).addEventListener(`click`, function () {
   document.querySelector(`.header`).style.color = `green`;
 });
 
-alert(`This website does not work on mobile.
+confirm(`This website does not work on mobile.
 Also, the choices in the table are "case sensative"`);
