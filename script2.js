@@ -54,6 +54,7 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
   } else if (guess != food)
     if (score > 0) {
       {
+        choices = wrongChoices[Math.floor(Math.random() * wrongChoices.length)];
         document.querySelector(`.message`).textContent = choices;
         score--;
         document.querySelector(`.score`).textContent = score;
