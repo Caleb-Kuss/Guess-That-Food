@@ -47,6 +47,13 @@ main {
   align-items: center;
 }
 
+#hint {
+  position: relative;
+  width: 30px;
+  height: 25px;
+  border-radius: 10%;
+}
+
 header {
   position: relative;
   height: 40vh;

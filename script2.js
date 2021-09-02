@@ -1,8 +1,9 @@
 `use strict`;
-// ----controls hover of the mystery box----
-// function changeText(text) {
-//   let mouseover = document.getElementsByClassName(`.mystery`);
-//   (mouseover.textContent = text),
+//----controls hover of the mystery box----
+// function changeText() {
+//   food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
+//   let mouseover = document.getElementById(`.hint`);
+//   (mouseover.querySelector = food),
 //     (mouseover.style.fontSize = '2rem'),
 //     (mouseover.style.backgroundColor = 'black'),
 //     (mouseover.style.color = '#add8e6');
@@ -12,7 +13,7 @@
 // onmouseover="changeText(`No Hints Here!`)"
 // onmouseout="defaultText()"
 // function defaultText() {
-//   let mouseout = document.getElementsByName(`.mystery`);
+//   let mouseout = document.getElementById(`.hint`);
 //   mouseout.textContent = '???';
 //   mouseout.style.fontSize = '5rem';
 //   mouseout.style.backgroundColor = 'rgb(31, 110, 146)';
@@ -36,6 +37,7 @@ let wrongChoices = [
   `Incorrect. Don't give up`,
   `No, keep on trying`,
 ];
+
 let food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
 let choices = wrongChoices[Math.floor(Math.random() * wrongChoices.length)];
 let score = 9;
@@ -53,6 +55,8 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
     ).textContent = `Great job! That's correct!`;
     document.querySelector(`body`).style.backgroundColor = `green`;
     document.querySelector(`.mystery`).textContent = food;
+    document.querySelector(`.submit`).style.boxShadow = `5px 5px 5px aqua`;
+    document.querySelector(`.again`).style.boxShadow = `5px 5px 5px aqua`;
   } else if (guess != food)
     if (score > 0) {
       {
@@ -82,10 +86,24 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
     }
 });
 
+food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
+str = food.substring(0, 2);
+function changeHint() {
+  document.getElementById('hint').style.backgroundColor = `black`;
+  document.getElementById('hint').style.color = `aqua`;
+  document.getElementById('hint').textContent = str;
+}
+
+function defaultText() {
+  document.getElementById('hint').textContent = ``;
+  document.getElementById('hint').style.backgroundColor = ``;
+}
+
 document.querySelector(`.again`).addEventListener(`click`, function () {
   score = 9;
   food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
   choices = wrongChoices[Math.floor(Math.random() * wrongChoices.length)];
+  str = food.substring(0, 2);
   document.querySelector(`.message`).textContent = `Seriously, Try it!`;
   document.querySelector(`body`).style.backgroundColor = `rgb(39, 73, 73)`;
   document.querySelector(`.score`).textContent = score;
@@ -99,6 +117,8 @@ document.querySelector(`.again`).addEventListener(`click`, function () {
   document.querySelector(`header`).style.borderBottom = `7px solid black`;
   document.querySelector(`.submit`).style.boxShadow = `5px 5px 5px red`;
   document.querySelector(`.again`).style.boxShadow = `5px 5px 5px red`;
+  document.getElementById('hint').style.backgroundColor = ``;
+  document.getElementById('hint').style.color = ``;
 });
 
-confirm(`This website does not work well on mobile.`);
+//confirm(`This website does not work well on mobile.`);

@@ -9,6 +9,11 @@
   </head>
   <body>
     <header>
+      <div
+        id="hint"
+        onmouseover="changeHint()"
+        onmouseout="defaultText()"
+      ></div>
       <h1 class="header">Guess That Food!</h1>
       <p class="message">Seriously, Try it!</p>
       <button class="again">Play Again!</button>
@@ -44,6 +49,7 @@
           </tr>
         </table>
         <p class="disclaimer">** The answers are case sensative **</p>
+        <p>*I wonder if there is a hint?*</p>
       </section>
     </main>
     <script src="/script2.js"></script>
