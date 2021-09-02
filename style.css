@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+body {
+  background-color: rgb(39, 73, 73);
+}
+
+main {
+  position: relative;
+  height: 65vh;
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.header {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  color: cadetblue;
+  font-size: 10vh;
+  animation: header 4s ease;
+}
+
+@keyframes header {
+  0% {
+    transform: translatey(-200%);
+    color: cadetblue;
+  }
+  100% {
+    transform: translatex(0%);
+    color: cadetblue;
+  }
+}
+
+.message {
+  left: 1em;
+  position: absolute;
+  font-size: 3em;
+  color: aquamarine;
+}
+
+td,
+tr {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+  border: 1px solid aqua;
+  border-collapse: collapse;
+  padding: 0.15em;
+}
+
+td {
+  padding: 0.5em;
+}
+
+thead,
+th {
+  background-color: aqua;
+  color: black;
+}
+
+.divTable {
+  position: relative;
+  right: -25%;
+  left: -42%;
+  top: 25%;
+}
+
+table {
+  width: 100%;
+  background-color: black;
+  color: aqua;
+}
+
+.again {
+  position: absolute;
+  right: 1em;
+  top: 0em;
+  padding: 1vh;
+  border-radius: 5%;
+  background-color: purple;
+  color: rgb(201, 198, 202);
+  cursor: pointer;
+}
+.again:hover {
+  background-color: rgb(201, 198, 202);
+  color: purple;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.section1 {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+  margin: 28%;
+}
+
+.guess {
+  position: absolute;
+  bottom: 10em;
+  left: 24.8rem;
+  background-color: snow;
+  padding: 1em;
+}
+
+.submit {
+  position: absolute;
+  background-color: darkslateblue;
+  font-weight: bold;
+  left: 32.5em;
+  width: 8em;
+  bottom: 3em;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.mystery {
+  display: flex;
+  justify-content: center;
+  font-size: 5em;
+  background-color: rgb(31, 110, 146);
+  border-radius: 50%;
+  color: red;
+  margin-top: -2.5em;
+  margin-left: -1.5em;
+  position: absolute;
+  padding: 0.5em;
+}
+
+.score {
+  position: absolute;
+  font-weight: bolder;
+  font-size: xx-large;
+  bottom: 0.65em;
+  left: 36.8em;
+}
+
+.attempt {
+  position: absolute;
+  font-weight: bolder;
+  font-size: xx-large;
+  bottom: 0.65em;
+  left: 30em;
+}
