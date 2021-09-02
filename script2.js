@@ -121,4 +121,4 @@ document.querySelector(`.again`).addEventListener(`click`, function () {
   document.getElementById('hint').style.color = ``;
 });
 
-//confirm(`This website does not work well on mobile.`);
+confirm(`This website does not work well on mobile.`);
