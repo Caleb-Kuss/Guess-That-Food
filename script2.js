@@ -59,6 +59,7 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
         score--;
         document.querySelector(`.score`).textContent = score;
         document.querySelector(`body`).style.backgroundColor = `red`;
+        document.querySelector(`.mystery`).style.color = `black`;
       }
     } else {
       document.querySelector(`.message`).textContent = `Better luck next time.`;
@@ -69,6 +70,9 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
       document.querySelector(`.mystery`).style.fontSize = `5em`;
       document.querySelector(`.mystery`).style.color = `white`;
       document.querySelector(`.mystery`).textContent = food;
+      document.querySelector(
+        `header`
+      ).style.borderBottom = `7px solid aquamarine`;
     }
 });
 
@@ -81,13 +85,12 @@ document.querySelector(`.again`).addEventListener(`click`, function () {
   document.querySelector(`.score`).textContent = score;
   document.querySelector(`.guess`).value = ``;
   document.querySelector(`.mystery`).style.color = `red`;
-  document.querySelector(`.mystery`).style.marginTop = `-2.5em`;
-  document.querySelector(`.mystery`).style.marginleft = `-1.5em`;
-  document.querySelector(`.mystery`).style.textAlign = `center`;
-  document.querySelector(`.mystery`).style.padding = `0.5em`;
+  document.querySelector(`.mystery`).style.padding = `0.3em`;
   document.querySelector(`.mystery`).textContent = `???`;
   document.querySelector(`.mystery`).style.fontSize = `5rem`;
-  document.querySelector(`.header`).style.color = `green`;
+  document.querySelector(`.header`).style.color = `cadetblue`;
+  document.querySelector(`.mystery`).style.backgroundColor = ``;
+  document.querySelector(`header`).style.borderBottom = `7px solid black`;
 });
 
 confirm(`This website does not work on mobile.

@@ -9,7 +9,6 @@ body {
 }
 
 main {
-  position: relative;
   height: 65vh;
   color: #eee;
   display: flex;
@@ -35,10 +34,28 @@ main {
     color: cadetblue;
   }
 }
+.left {
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.right {
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  position: relative;
+  height: 40vh;
+  border-bottom: 7px solid black;
+}
 
 .message {
-  left: 1em;
-  position: absolute;
+  text-align: center;
+  position: relative;
   font-size: 3em;
   color: aquamarine;
 }
@@ -63,17 +80,11 @@ th {
   color: black;
 }
 
-.divTable {
-  position: relative;
-  right: -25%;
-  left: -42%;
-  top: 25%;
-}
-
 table {
-  width: 100%;
   background-color: black;
   color: aqua;
+
+  position: relative;
 }
 
 .again {
@@ -93,57 +104,47 @@ table {
   cursor: pointer;
 }
 
-.section1 {
-  display: flex;
-  flex-direction: column;
-  width: 10%;
-  margin: 28%;
-}
-
 .guess {
   position: absolute;
-  bottom: 10em;
-  left: 24.8rem;
+
   background-color: snow;
-  padding: 1em;
+  padding: 2em;
 }
 
 .submit {
   position: absolute;
   background-color: darkslateblue;
   font-weight: bold;
-  left: 32.5em;
   width: 8em;
-  bottom: 3em;
+  bottom: 5em;
   padding: 1em;
   cursor: pointer;
 }
 
 .mystery {
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  width: 100%;
   font-size: 5em;
-  background-color: rgb(31, 110, 146);
-  border-radius: 50%;
   color: red;
-  margin-top: -2.5em;
-  margin-left: -1.5em;
-  position: absolute;
-  padding: 0.5em;
+  position: relative;
+  bottom: 1em;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  padding: 0.3em;
 }
 
 .score {
-  position: absolute;
+  position: relative;
   font-weight: bolder;
   font-size: xx-large;
-  bottom: 0.65em;
-  left: 36.8em;
+
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 .attempt {
-  position: absolute;
+  position: relative;
   font-weight: bolder;
   font-size: xx-large;
-  bottom: 0.65em;
-  left: 30em;
 }

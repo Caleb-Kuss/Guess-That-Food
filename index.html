@@ -8,18 +8,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1 class="header">Guess That Food!</h1>
-    <main>
-      <button class="again">Play Again!</button>
-      <p class="score">9</p>
-      <p class="attempt">Attempts left:</p>
+    <header>
+      <h1 class="header">Guess That Food!</h1>
       <p class="message">Seriously, Try it!</p>
+      <button class="again">Play Again!</button>
       <div class="mystery">???</div>
-      <section class="section1">
+    </header>
+    <main>
+      <section class="left">
         <input type="text" class="guess" />
         <button class="submit">Submit!</button>
       </section>
-      <div class="divTable">
+      <section class="right">
+        <p class="attempt">Attempts left: <span class="score">9</span></p>
         <table>
           <thead>
             <tr>
@@ -42,7 +43,7 @@
             <td>Ramen</td>
           </tr>
         </table>
-      </div>
+      </section>
     </main>
     <script src="/script2.js"></script>
   </body>
