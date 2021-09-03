@@ -42,6 +42,7 @@ let wrongChoices = [
 let food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
 let choices = wrongChoices[Math.floor(Math.random() * wrongChoices.length)];
 let score = 9;
+let highscores = 0;
 document.querySelector(`.submit`).addEventListener(`click`, function () {
   const guess = document.querySelector(`.guess`).value;
   if (!guess) {
@@ -52,9 +53,14 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
     document.querySelector(`.again`).style.boxShadow = `5px 5px 5px red`;
   } else if (guess === food) {
     //if the input === random food populates this code
+    if (score > highscores) {
+      highscores = score;
+      document.querySelector(`.highScoreNumber`).textContent = highscores;
+    }
     document.querySelector(
       `.message`
     ).textContent = `Great job! That's correct!`;
+    document.querySelector(`.mystery`).style.color = `red`;
     document.querySelector(`body`).style.backgroundColor = `green`;
     document.querySelector(`.mystery`).textContent = food;
     document.querySelector(`.submit`).style.boxShadow = `5px 5px 5px aqua`;

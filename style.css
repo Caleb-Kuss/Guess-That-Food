@@ -156,3 +156,8 @@ table {
   font-weight: bolder;
   font-size: xx-large;
 }
+
+.highscore {
+  font-weight: bold;
+  font-size: x-large;
+}
