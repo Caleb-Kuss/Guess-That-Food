@@ -20,6 +20,7 @@
 //   mouseout.style.color = 'red';
 // }
 //---- end of mystery code----
+
 let foodChoices = [
   'Pizza',
   'Cheese Burger',
@@ -33,23 +34,24 @@ let foodChoices = [
 ];
 let wrongChoices = [
   `Nope. Try Again`,
-  `Wrong. Try once more!`,
-  `Incorrect. Don't give up`,
-  `No, keep on trying`,
+  `Wrong. Try Once More!`,
+  `Incorrect. Don't Give Up`,
+  `Nope, Keep On Trying`,
 ];
-
+//code for game to work
 let food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
 let choices = wrongChoices[Math.floor(Math.random() * wrongChoices.length)];
 let score = 9;
-console.log(food);
 document.querySelector(`.submit`).addEventListener(`click`, function () {
   const guess = document.querySelector(`.guess`).value;
   if (!guess) {
+    //if nothing is in the input box it populates this line of code
     document.querySelector(`.message`).textContent = `You didn't even guess!`;
     document.querySelector(`body`).style.backgroundColor = `blue`;
     document.querySelector(`.submit`).style.boxShadow = `5px 5px 5px red`;
     document.querySelector(`.again`).style.boxShadow = `5px 5px 5px red`;
   } else if (guess === food) {
+    //if the input === random food populates this code
     document.querySelector(
       `.message`
     ).textContent = `Great job! That's correct!`;
@@ -59,6 +61,7 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
     document.querySelector(`.again`).style.boxShadow = `5px 5px 5px aqua`;
   } else if (guess != food)
     if (score > 0) {
+      //if input != to food populates this
       {
         choices = wrongChoices[Math.floor(Math.random() * wrongChoices.length)];
         document.querySelector(`.message`).textContent = choices;
@@ -70,6 +73,7 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
         document.querySelector(`.again`).style.boxShadow = `5px 5px 5px aqua`;
       }
     } else {
+      //this populates when no more attempts exist
       document.querySelector(`.message`).textContent = `Better luck next time.`;
       document.querySelector(`body`).style.backgroundColor = `black`;
       document.querySelector(`.header`).style.color = `aquamarine`;
@@ -87,7 +91,9 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
 });
 
 food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
-str = food.substring(0, 2);
+str = food.substring(0, 2); //runs the hint box.
+
+//hover effect for the hint
 function changeHint() {
   document.getElementById('hint').style.backgroundColor = `black`;
   document.getElementById('hint').style.color = `aqua`;
@@ -98,7 +104,9 @@ function defaultText() {
   document.getElementById('hint').textContent = ``;
   document.getElementById('hint').style.backgroundColor = ``;
 }
+//end of hint code
 
+//code for play again button to reset everything
 document.querySelector(`.again`).addEventListener(`click`, function () {
   score = 9;
   food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
@@ -119,6 +127,20 @@ document.querySelector(`.again`).addEventListener(`click`, function () {
   document.querySelector(`.again`).style.boxShadow = `5px 5px 5px red`;
   document.getElementById('hint').style.backgroundColor = ``;
   document.getElementById('hint').style.color = ``;
+});
+
+// Get the input field
+let input = document.querySelector('.guess');
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener('keyup', function (event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.querySelector('.submit').click();
+  }
 });
 
 confirm(`This website does not work well on mobile.`);
