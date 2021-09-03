@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
+  font-family: 'Press Start 2P', sans-serif;
 }
 body {
   background-color: rgb(39, 73, 73);
@@ -20,7 +23,7 @@ main {
   text-align: center;
   width: 100%;
   color: aqua;
-  font-size: 10vh;
+  font-size: 5rem;
   animation: header 4s ease;
 }
 
@@ -49,7 +52,7 @@ main {
 
 #hint {
   position: relative;
-  width: 30px;
+  width: 40px;
   height: 25px;
   border-radius: 10%;
 }
@@ -61,9 +64,10 @@ header {
 }
 
 .message {
+  top: 2rem;
   text-align: center;
   position: relative;
-  font-size: 3em;
+  font-size: 2rem;
   color: aquamarine;
 }
 
@@ -71,13 +75,14 @@ td,
 tr {
   display: flex;
   flex-basis: 100%;
-  justify-content: center;
+  justify-content: space-around;
   border: 1px solid aqua;
   border-collapse: collapse;
   padding: 0.15em;
 }
 
 td {
+  text-align: center;
   padding: 0.5em;
 }
 
@@ -124,7 +129,7 @@ table {
   color: aqua;
   box-shadow: 5px 5px 5px red;
   font-weight: bold;
-  width: 8em;
+  width: 8.5em;
   padding: 1em;
   margin: 1em auto;
   cursor: pointer;
@@ -136,7 +141,7 @@ table {
   font-size: 5em;
   color: red;
   position: relative;
-  bottom: 1em;
+  bottom: 0rem;
   left: 50%;
   transform: translate(-50%, 50%);
   padding: 0.3em;
@@ -145,7 +150,7 @@ table {
 .score {
   position: relative;
   font-weight: bolder;
-  font-size: xx-large;
+  font-size: x-large;
   box-sizing: inherit;
   margin: 0;
   padding: 0;
@@ -153,11 +158,23 @@ table {
 
 .attempt {
   position: relative;
-  font-weight: bolder;
-  font-size: xx-large;
+  font-size: x-large;
 }
 
 .highscore {
+  position: relative;
   font-weight: bold;
-  font-size: x-large;
+  font-size: large;
+  margin: 0.5rem;
+}
+
+.disclaimer {
+  position: relative;
+  font-size: 0.7rem;
+  margin: 1rem;
+}
+.disclaimer2 {
+  position: relative;
+  font-size: 0.7rem;
+  margin: 0.5rem;
 }
