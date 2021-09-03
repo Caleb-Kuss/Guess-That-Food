@@ -126,7 +126,7 @@ document.querySelector(`.again`).addEventListener(`click`, function () {
   document.querySelector(`.mystery`).style.padding = `0.3em`;
   document.querySelector(`.mystery`).textContent = `???`;
   document.querySelector(`.mystery`).style.fontSize = `5rem`;
-  document.querySelector(`.header`).style.color = `cadetblue`;
+  document.querySelector(`.header`).style.color = `aqua`;
   document.querySelector(`.mystery`).style.backgroundColor = ``;
   document.querySelector(`header`).style.borderBottom = `7px solid black`;
   document.querySelector(`.submit`).style.boxShadow = `5px 5px 5px red`;
