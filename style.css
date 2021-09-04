@@ -49,7 +49,7 @@ main {
 .right {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
   padding: 1vh;
 }
 
