@@ -4,11 +4,31 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: auto;
   font-family: 'Press Start 2P', sans-serif;
 }
 body {
   background-color: rgb(39, 73, 73);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: aqua;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 255, 0.5);
 }
 
 main {
@@ -173,7 +193,6 @@ table {
 /* add a nice style to color*/
 .scroll {
   width: 100%;
-  overflow: auto;
 }
 
 .disclaimer {
