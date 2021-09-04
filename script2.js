@@ -85,7 +85,7 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
       document.querySelector(`.header`).style.color = `aquamarine`;
       document.querySelector(`.mystery`).style.backgroundColor = `teal`;
       document.querySelector(`.mystery`).textContent = food;
-      document.querySelector(`.mystery`).style.fontSize = `2em`;
+      document.querySelector(`.mystery`).style.fontSize = `3vh 3vw`;
       document.querySelector(`.mystery`).style.color = `white`;
       document.querySelector(`.mystery`).textContent = food;
       document.querySelector(
@@ -125,7 +125,7 @@ document.querySelector(`.again`).addEventListener(`click`, function () {
   document.querySelector(`.mystery`).style.color = `red`;
   document.querySelector(`.mystery`).style.padding = `0.3em`;
   document.querySelector(`.mystery`).textContent = `???`;
-  document.querySelector(`.mystery`).style.fontSize = `2rem`;
+  document.querySelector(`.mystery`).style.fontSize = `3vh 3vw`;
   document.querySelector(`.header`).style.color = `aqua`;
   document.querySelector(`.mystery`).style.backgroundColor = ``;
   document.querySelector(`header`).style.borderBottom = `7px solid black`;
@@ -149,4 +149,4 @@ input.addEventListener('keyup', function (event) {
   }
 });
 
-confirm(`This website does not work well on mobile.`);
+// confirm(`This website does not work well on mobile.`);
