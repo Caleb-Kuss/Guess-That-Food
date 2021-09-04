@@ -49,7 +49,8 @@ main {
 .right {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
+  padding: 1vh;
 }
 
 #hint {
@@ -163,15 +164,15 @@ table {
 }
 
 .highscore {
-  margin: 1vh;
+  transform: translatey(-50%);
   position: relative;
   font-weight: bold;
   font-size: 2vh;
 }
-
+/* add a nice style to color*/
 .scroll {
   width: 100%;
-  overflow-x: scroll;
+  overflow: auto;
 }
 
 .disclaimer {
