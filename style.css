@@ -18,6 +18,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap-reverse;
 }
 .header {
   position: relative;
@@ -123,7 +124,7 @@ table {
   min-width: 0%;
   max-width: 100%;
   background-color: snow;
-  padding: 3vw;
+  padding: 2vw;
 }
 
 .submit {
@@ -133,7 +134,7 @@ table {
   box-shadow: 5px 5px 5px red;
   font-weight: bold;
   padding: 1vw;
-  margin: 1vw auto;
+  margin: 1vh;
   cursor: pointer;
 }
 
