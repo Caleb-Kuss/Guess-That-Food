@@ -1,25 +1,4 @@
 `use strict`;
-//----controls hover of the mystery box----
-// function changeText() {
-//   food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
-//   let mouseover = document.getElementById(`.hint`);
-//   (mouseover.querySelector = food),
-//     (mouseover.style.fontSize = '2rem'),
-//     (mouseover.style.backgroundColor = 'black'),
-//     (mouseover.style.color = '#add8e6');
-// }
-
-//code below is for HTML of #mystery
-// onmouseover="changeText(`No Hints Here!`)"
-// onmouseout="defaultText()"
-// function defaultText() {
-//   let mouseout = document.getElementById(`.hint`);
-//   mouseout.textContent = '???';
-//   mouseout.style.fontSize = '5rem';
-//   mouseout.style.backgroundColor = 'rgb(31, 110, 146)';
-//   mouseout.style.color = 'red';
-// }
-//---- end of mystery code----
 
 let foodChoices = [
   'Pizza',
@@ -41,12 +20,13 @@ let wrongChoices = [
 //code for game to work
 let food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
 let choices = wrongChoices[Math.floor(Math.random() * wrongChoices.length)];
-let score = 9;
+let score = 7;
 let highscores = 0;
 document.querySelector(`.submit`).addEventListener(`click`, function () {
   const guess = document.querySelector(`.guess`).value;
   if (!guess) {
     //if nothing is in the input box it populates this line of code
+    document.querySelector(`.guess`).style.color = `blue`;
     document.querySelector(`.message`).textContent = `You didn't even guess!`;
     document.querySelector(`body`).style.backgroundColor = `blue`;
     document.querySelector(`.submit`).style.boxShadow = `5px 5px 5px red`;
@@ -57,11 +37,15 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
       highscores = score;
       document.querySelector(`.highScoreNumber`).textContent = highscores;
     }
+    document.querySelector(`.guess`).style.color = `green`;
     document.querySelector(
       `.message`
     ).textContent = `Great job! That's correct!`;
-    document.querySelector(`.mystery`).style.color = `red`;
     document.querySelector(`body`).style.backgroundColor = `green`;
+    document.querySelector(`.mystery`).style.backgroundColor = `black`;
+    document.querySelector(`.mystery`).style.color = `#add8e6`;
+    document.querySelector(`.mystery`).style.borderRadius = ``;
+    document.querySelector(`.mystery`).style.width = `100%`;
     document.querySelector(`.mystery`).textContent = food;
     document.querySelector(`.submit`).style.boxShadow = `5px 5px 5px aqua`;
     document.querySelector(`.again`).style.boxShadow = `5px 5px 5px aqua`;
@@ -74,25 +58,30 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
         score--;
         document.querySelector(`.score`).textContent = score;
         document.querySelector(`body`).style.backgroundColor = `red`;
-        document.querySelector(`.mystery`).style.color = `black`;
+        document.querySelector(`.mystery`).style.color = `var(--mystery)`;
         document.querySelector(`.submit`).style.boxShadow = `5px 5px 5px aqua`;
         document.querySelector(`.again`).style.boxShadow = `5px 5px 5px aqua`;
+        document.querySelector(`.guess`).style.color = `red`;
       }
     } else {
       //this populates when no more attempts exist
       document.querySelector(`.message`).textContent = `Better luck next time.`;
       document.querySelector(`body`).style.backgroundColor = `black`;
       document.querySelector(`.header`).style.color = `aquamarine`;
+      document.querySelector(`.mystery`).style.width = `100%`;
       document.querySelector(`.mystery`).style.backgroundColor = `teal`;
       document.querySelector(`.mystery`).textContent = food;
-      document.querySelector(`.mystery`).style.fontSize = `3vh 3vw`;
+      document.querySelector(`.mystery`).style.fontSize = `2.5vh`;
       document.querySelector(`.mystery`).style.color = `white`;
+      document.querySelector(`.mystery`).style.borderRadius = ``;
       document.querySelector(`.mystery`).textContent = food;
       document.querySelector(
         `header`
       ).style.borderBottom = `7px solid aquamarine`;
       document.querySelector(`.submit`).style.boxShadow = `5px 5px 5px red`;
       document.querySelector(`.again`).style.boxShadow = `5px 5px 5px red`;
+      document.getElementById(`mystery1`).textContent = food;
+      document.querySelector(`.guess`).style.color = `black`;
     }
 });
 
@@ -100,21 +89,59 @@ food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
 str = food.substring(0, 2); //runs the hint box.
 
 //hover effect for the hint
-function changeHint() {
-  document.getElementById('hint').style.backgroundColor = `black`;
-  document.getElementById('hint').style.color = `aqua`;
-  document.getElementById('hint').textContent = str;
+// function changeHint() {
+//   document.getElementById('hint').style.backgroundColor = `black`;
+//   document.getElementById('hint').style.color = `aqua`;
+//   document.getElementById('hint').textContent = str;
+// }
+
+// function defaultText() {
+//   document.getElementById('hint').textContent = ``;
+//   document.getElementById('hint').style.backgroundColor = ``;
+// }
+//end of hint code
+
+food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
+str = food.substring(0, 2);
+function changeText() {
+  //----controls hover of the mystery box----
+  let mouseover = document.getElementById(`mystery1`);
+
+  guess = document.querySelector(`.guess`).value;
+  if (guess === food) {
+    mouseover.textContent = food;
+  } else if (score > 0) {
+    (mouseover.textContent = str),
+      (mouseover.style.fontSize = '2.5vh'),
+      (mouseover.style.backgroundColor = 'black'),
+      (mouseover.style.color = '#add8e6');
+    mouseover.style.width = `var(--mysteryWidth)`;
+    mouseover.style.borderRadius = `5%`;
+  }
 }
 
+// //code below is for HTML of #mystery
+// // onmouseover="changeText()"
+// // onmouseout="defaultText()"
+
+food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
+str = food.substring(0, 2);
 function defaultText() {
-  document.getElementById('hint').textContent = ``;
-  document.getElementById('hint').style.backgroundColor = ``;
-}
-//end of hint code
+  let mouseout = document.getElementById(`mystery1`);
+  guess = document.querySelector(`.guess`).value;
+  if (guess === food) {
+    mouseover.textContent = food;
+  } else if (score > 0) {
+    mouseout.textContent = '???';
+    mouseout.style.fontSize = '2.5vh';
+    mouseout.style.backgroundColor = '';
+    mouseout.style.color = 'var(--mystery)';
+  }
+} //---- end of mystery code----
 
 //code for play again button to reset everything
 document.querySelector(`.again`).addEventListener(`click`, function () {
-  score = 9;
+  score = 7;
   food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
   choices = wrongChoices[Math.floor(Math.random() * wrongChoices.length)];
   str = food.substring(0, 2);
@@ -122,10 +149,10 @@ document.querySelector(`.again`).addEventListener(`click`, function () {
   document.querySelector(`body`).style.backgroundColor = `rgb(39, 73, 73)`;
   document.querySelector(`.score`).textContent = score;
   document.querySelector(`.guess`).value = ``;
-  document.querySelector(`.mystery`).style.color = `red`;
+  document.querySelector(`.mystery`).style.color = `var(--mystery)`;
   document.querySelector(`.mystery`).style.padding = `0.3em`;
   document.querySelector(`.mystery`).textContent = `???`;
-  document.querySelector(`.mystery`).style.fontSize = `3vh 3vw`;
+  document.querySelector(`.mystery`).style.fontSize = `2.5vh`;
   document.querySelector(`.header`).style.color = `aqua`;
   document.querySelector(`.mystery`).style.backgroundColor = ``;
   document.querySelector(`header`).style.borderBottom = `7px solid black`;
@@ -133,6 +160,8 @@ document.querySelector(`.again`).addEventListener(`click`, function () {
   document.querySelector(`.again`).style.boxShadow = `5px 5px 5px red`;
   document.getElementById('hint').style.backgroundColor = ``;
   document.getElementById('hint').style.color = ``;
+  document.querySelector(`.guess`).style.color = ``;
+  document.querySelector(`.mystery`).style.width = `var(--mysteryWidth)`;
 });
 
 // Get the input field

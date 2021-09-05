@@ -7,6 +7,12 @@
   overflow: auto;
   font-family: 'Press Start 2P', sans-serif;
 }
+
+:root {
+  --mystery: aqua;
+  --mysteryWidth: 20vw;
+}
+
 body {
   background-color: rgb(39, 73, 73);
 }
@@ -47,7 +53,7 @@ main {
   color: aqua;
   font-size: 3vh;
   animation: header 4s ease;
-  top: 2.2vh;
+  top: 6vh;
 }
 
 @keyframes header {
@@ -72,14 +78,15 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 1vh;
+  margin-top: 10vh;
 }
 
-#hint {
+/* #hint { **NOT IN USE**
   position: relative;
   width: 40px;
   height: 25px;
   border-radius: 10%;
-}
+} */
 
 header {
   position: relative;
@@ -88,7 +95,7 @@ header {
 }
 
 .message {
-  top: 5vh;
+  top: 10vh;
   text-align: center;
   position: relative;
   font-size: 2vh;
@@ -105,9 +112,11 @@ tr {
   padding: 0.15em;
 }
 
-td {
+td,
+th {
   text-align: center;
   padding: 0.5em;
+  font-size: 1.7vh;
 }
 
 thead,
@@ -135,7 +144,7 @@ table {
 .again:hover {
   background-color: aqua;
   color: black;
-  border-radius: 50%;
+  border-radius: 5%;
   cursor: pointer;
 }
 
@@ -160,14 +169,14 @@ table {
 
 .mystery {
   text-align: center;
-  width: 100%;
-  font-size: 3vh;
-  color: red;
+  font-size: 2.5vh;
+  color: aqua;
   position: relative;
-  top: 5vh;
+  top: 12vh;
   left: 50%;
   transform: translate(-50%, 50%);
   padding: 0.3em;
+  width: 20vw;
 }
 
 .score {

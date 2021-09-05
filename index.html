@@ -17,7 +17,14 @@
       <h1 class="header">Guess That Food!</h1>
       <p class="message">Seriously, Try it!</p>
       <button class="again">Play Again!</button>
-      <div class="mystery">???</div>
+      <div
+        id="mystery1"
+        class="mystery"
+        onmouseover="changeText()"
+        onmouseout="defaultText()"
+      >
+        ???
+      </div>
     </header>
     <main>
       <section class="left">
@@ -28,7 +35,7 @@
         <p class="highscore">
           Highscore: <span class="highScoreNumber">0</span>
         </p>
-        <p class="attempt">Attempts left: <span class="score">9</span></p>
+        <p class="attempt">Attempts left: <span class="score">7</span></p>
         <div class="scroll">
           <table>
             <thead>
