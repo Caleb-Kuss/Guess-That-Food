@@ -18,25 +18,30 @@ let wrongChoices = [
   `Nope, Keep On Trying`,
 ];
 //code for game to work
-let food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
-let choices = wrongChoices[Math.floor(Math.random() * wrongChoices.length)];
+let food = getRandom(foodChoices);
+let choices = getRandom(wrongChoices);
 let score = 7;
 let highscores = 0;
+let lifeTimeAttempts = 0;
 document.querySelector(`.submit`).addEventListener(`click`, function () {
   const guess = document.querySelector(`.guess`).value;
   if (!guess) {
+    incrementTotAttempts();
     //if nothing is in the input box it populates this line of code
     document.querySelector(`.guess`).style.color = `blue`;
     document.querySelector(`.message`).textContent = `You didn't even guess!`;
     document.querySelector(`body`).style.backgroundColor = `blue`;
     document.querySelector(`.submit`).style.boxShadow = `5px 5px 5px red`;
     document.querySelector(`.again`).style.boxShadow = `5px 5px 5px red`;
-  } else if (guess === food) {
+  } else if (guess.toUpperCase() === food.toUpperCase()) {
+    //no longer case sensitive
     //if the input === random food populates this code
     if (score > highscores) {
       highscores = score;
       document.querySelector(`.highScoreNumber`).textContent = highscores;
+      saveHighScore(score);
     }
+    incrementTotAttempts();
     document.querySelector(`.guess`).style.color = `green`;
     document.querySelector(
       `.message`
@@ -53,7 +58,8 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
     if (score > 0) {
       //if input != to food populates this
       {
-        choices = wrongChoices[Math.floor(Math.random() * wrongChoices.length)];
+        incrementTotAttempts();
+        choices = getRandom(wrongChoices);
         document.querySelector(`.message`).textContent = choices;
         score--;
         document.querySelector(`.score`).textContent = score;
@@ -85,7 +91,7 @@ document.querySelector(`.submit`).addEventListener(`click`, function () {
     }
 });
 
-food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
+food = getRandom(foodChoices);
 str = food.substring(0, 2); //runs the hint box.
 
 //hover effect for the hint
@@ -101,7 +107,7 @@ str = food.substring(0, 2); //runs the hint box.
 // }
 //end of hint code
 
-food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
+food = getRandom(foodChoices);
 str = food.substring(0, 2);
 function changeText() {
   //----controls hover of the mystery box----
@@ -124,7 +130,7 @@ function changeText() {
 // // onmouseover="changeText()"
 // // onmouseout="defaultText()"
 
-food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
+food = getRandom(foodChoices);
 str = food.substring(0, 2);
 function defaultText() {
   let mouseout = document.getElementById(`mystery1`);
@@ -142,8 +148,8 @@ function defaultText() {
 //code for play again button to reset everything
 document.querySelector(`.again`).addEventListener(`click`, function () {
   score = 7;
-  food = foodChoices[Math.floor(Math.random() * foodChoices.length)];
-  choices = wrongChoices[Math.floor(Math.random() * wrongChoices.length)];
+  food = getRandom(foodChoices);
+  choices = getRandom(wrongChoices);
   str = food.substring(0, 2);
   document.querySelector(`.message`).textContent = `Seriously, Try it!`;
   document.querySelector(`body`).style.backgroundColor = `rgb(39, 73, 73)`;
@@ -178,4 +184,35 @@ input.addEventListener('keyup', function (event) {
   }
 });
 
-// confirm(`This website does not work well on mobile.`);
+function getRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function saveHighScore(maxScore) {
+  const everlastingHighScore = Number(localStorage.getItem(`HighScore`));
+  if (!everlastingHighScore || everlastingHighScore <= maxScore) {
+    localStorage.setItem(`HighScore`, maxScore);
+    document.querySelector(`.highScoreNumber`).textContent = maxScore;
+  }
+}
+//F2 change names everywhere faster
+function init() {
+  const findScore = localStorage.getItem(`HighScore`);
+  document.querySelector(`.highScoreNumber`).textContent = findScore || 0;
+  const findTotalAttempts = Number(localStorage.getItem(`Attempts`));
+  document.querySelector(`.attemptsTotal`).textContent = findTotalAttempts || 0;
+  lifeTimeAttempts = findTotalAttempts || 0;
+}
+
+function incrementTotAttempts() {
+  lifeTimeAttempts++;
+  localStorage.setItem(`Attempts`, lifeTimeAttempts);
+  document.querySelector(`.attemptsTotal`).textContent = lifeTimeAttempts;
+}
+
+function resetHighscore() {
+  localStorage.removeItem(`HighScore`);
+  init();
+}
+
+document.addEventListener(`DOMContentLoaded`, init);

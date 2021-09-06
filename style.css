@@ -156,6 +156,12 @@ table {
   padding: 2vw;
 }
 
+.attemptsTotal,
+.attemptsTotal_class {
+  font-size: 2vh;
+  margin: ;
+}
+
 .submit {
   position: relative;
   background-color: black;
@@ -194,7 +200,6 @@ table {
 }
 
 .highscore {
-  transform: translatey(-50%);
   position: relative;
   font-weight: bold;
   font-size: 2vh;

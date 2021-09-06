@@ -1,0 +1,22 @@
+{
+  "name": "random-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script2.js",
+  "scripts": {
+    "server": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LawnGuru1776/random-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LawnGuru1776/random-project/issues"
+  },
+  "homepage": "https://github.com/LawnGuru1776/random-project#readme",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}
