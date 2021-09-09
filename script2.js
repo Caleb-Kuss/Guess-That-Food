@@ -39,6 +39,7 @@ const hiddenHintId = document.getElementById(`mystery1`);
 const playAgain = document.querySelector(`.again`);
 const headerBorder = document.querySelector(`header`);
 const attemptsLeft = document.querySelector(`.score`);
+const resetBtn = document.querySelector(`.reset`);
 
 submitBtn.addEventListener(`click`, function () {
   const guess = document.querySelector(`.guess`).value;
@@ -69,6 +70,7 @@ submitBtn.addEventListener(`click`, function () {
     hiddenHint.textContent = food;
     submitBtn.style.boxShadow = `5px 5px 5px aqua`;
     playAgain.style.boxShadow = `5px 5px 5px aqua`;
+    resetBtn.style.boxShadow = `5px 5px 5px aqua`;
   } else if (guess != food)
     if (score > 0) {
       //if input != to food populates this
@@ -82,6 +84,7 @@ submitBtn.addEventListener(`click`, function () {
         hiddenHint.style.color = `var(--mystery)`;
         submitBtn.style.boxShadow = `5px 5px 5px aqua`;
         playAgain.style.boxShadow = `5px 5px 5px aqua`;
+        resetBtn.style.boxShadow = `5px 5px 5px aqua`;
         inputBox.style.color = `red`;
       }
     } else {
@@ -99,6 +102,7 @@ submitBtn.addEventListener(`click`, function () {
       headerBorder.style.borderBottom = `7px solid aquamarine`;
       submitBtn.style.boxShadow = `5px 5px 5px red`;
       playAgain.style.boxShadow = `5px 5px 5px red`;
+      resetBtn.style.boxShadow = `5px 5px 5px red`;
       hiddenHintId.textContent = food;
       inputBox.style.color = `black`;
     }
@@ -125,9 +129,8 @@ str = food.substring(0, 2);
 function changeText() {
   //----controls hover of the mystery box----
   let mouseover = document.getElementById(`mystery1`);
-
   guess = document.querySelector(`.guess`).value;
-  if (guess === food) {
+  if (guess.toUpperCase() === food.toUpperCase()) {
     mouseover.textContent = food;
   } else if (score > 0) {
     (mouseover.textContent = str),
@@ -148,8 +151,8 @@ str = food.substring(0, 2);
 function defaultText() {
   let mouseout = document.getElementById(`mystery1`);
   guess = document.querySelector(`.guess`).value;
-  if (guess === food) {
-    mouseover.textContent = food;
+  if (guess.toUpperCase() === food.toUpperCase()) {
+    mouseout.textContent = food;
   } else if (score > 0) {
     mouseout.textContent = '???';
     mouseout.style.fontSize = '2.5vh';
@@ -177,10 +180,15 @@ playAgain.addEventListener(`click`, function () {
   document.querySelector(`header`).style.borderBottom = `7px solid black`;
   submitBtn.style.boxShadow = `5px 5px 5px red`;
   playAgain.style.boxShadow = `5px 5px 5px red`;
+  resetBtn.style.boxShadow = `5px 5px 5px red`;
   // document.getElementById('hint').style.backgroundColor = ``;
   // document.getElementById('hint').style.color = ``;
   inputBox.style.color = ``;
   hiddenHint.style.width = `var(--mysteryWidth)`;
+});
+
+resetBtn.addEventListener(`click`, function () {
+  resetHighscore();
 });
 
 // Get the input field
@@ -193,7 +201,7 @@ input.addEventListener('keyup', function (event) {
     // Cancel the default action, if needed
     event.preventDefault();
     // Trigger the button element with a click
-    document.querySelector('.submit').click();
+    submitBtn.click();
   }
 });
 
