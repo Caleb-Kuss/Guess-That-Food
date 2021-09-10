@@ -51,7 +51,7 @@ main {
   text-align: center;
   width: 100%;
   color: aqua;
-  font-size: 2em;
+  font-size: 1.5em;
   animation: header 4s ease;
   top: 10vh;
 }
@@ -96,7 +96,7 @@ header {
 
 .mystery {
   text-align: center;
-  font-size: 1.4em;
+  font-size: 1em;
   color: aqua;
   position: relative;
   top: 16vh;
