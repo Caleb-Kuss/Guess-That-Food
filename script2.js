@@ -98,7 +98,7 @@ submitBtn.addEventListener(`click`, function () {
       hiddenHint.style.width = `100%`;
       hiddenHint.style.backgroundColor = `teal`;
       hiddenHint.textContent = food;
-      hiddenHint.style.fontSize = `2.5vh`;
+      hiddenHint.style.fontSize = `1em`;
       hiddenHint.style.color = `white`;
       hiddenHint.style.borderRadius = ``;
       hiddenHint.textContent = food;
@@ -177,7 +177,7 @@ playAgain.addEventListener(`click`, function () {
   hiddenHint.style.color = `var(--mystery)`;
   hiddenHint.style.padding = `0.3em`;
   hiddenHint.textContent = `???`;
-  hiddenHint.style.fontSize = `2.5vh`;
+  hiddenHint.style.fontSize = `1em`;
   headerBorder.style.color = `aqua`;
   hiddenHint.style.backgroundColor = ``;
   document.querySelector(`header`).style.borderBottom = `7px solid black`;
