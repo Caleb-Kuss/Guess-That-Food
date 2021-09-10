@@ -201,6 +201,11 @@ table {
   z-index: 5;
 }
 
+.hiddenParagraph {
+  line-height: 2em;
+  font-size: small;
+}
+
 .resetHidden {
   position: absolute;
   left: 1vw;
