@@ -51,7 +51,7 @@ main {
   text-align: center;
   width: 100%;
   color: aqua;
-  font-size: 3vh;
+  font-size: 2em;
   animation: header 4s ease;
   top: 10vh;
 }
@@ -94,11 +94,23 @@ header {
   border-bottom: 7px solid black;
 }
 
+.mystery {
+  text-align: center;
+  font-size: 1.4em;
+  color: aqua;
+  position: relative;
+  top: 16vh;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  padding: 0.3em;
+  width: 20vw;
+}
+
 .message {
   top: 14vh;
   text-align: center;
   position: relative;
-  font-size: 2vh;
+  font-size: 1em;
   color: aquamarine;
 }
 
@@ -250,18 +262,6 @@ table {
   padding: 1vw;
   margin: 1vh;
   cursor: pointer;
-}
-
-.mystery {
-  text-align: center;
-  font-size: 2.5vh;
-  color: aqua;
-  position: relative;
-  top: 16vh;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  padding: 0.3em;
-  width: 20vw;
 }
 
 .score {
