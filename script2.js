@@ -40,11 +40,14 @@ const playAgain = document.querySelector(`.again`);
 const headerBorder = document.querySelector(`header`);
 const attemptsLeft = document.querySelector(`.score`);
 const resetBtn = document.querySelector(`.reset`);
-
+const resetDescHidden = document.querySelector(`.resetDescription`);
+const resetBtnHidden = document.querySelector(`.resetHidden`);
+const closeBtnHidden = document.querySelector(`.closeHidden`);
+const overlayHidden = document.querySelector(`.overlay`);
+const mainSection = document.querySelector(`.main`);
 submitBtn.addEventListener(`click`, function () {
   const guess = document.querySelector(`.guess`).value;
   if (!guess) {
-    incrementTotAttempts();
     //if nothing is in the input box it populates this line of code
     inputBox.style.color = `blue`;
     displayMessage(`You didn't even guess!`);
@@ -187,9 +190,9 @@ playAgain.addEventListener(`click`, function () {
   hiddenHint.style.width = `var(--mysteryWidth)`;
 });
 
-resetBtn.addEventListener(`click`, function () {
-  resetHighscore();
-});
+// resetBtn.addEventListener(`click`, function () {
+//   resetHighscore();
+// });//**reset button without MODAL**
 
 // Get the input field
 let input = document.querySelector('.guess');
@@ -236,4 +239,22 @@ function resetHighscore() {
   init();
 }
 
+const openReset = function () {
+  resetDescHidden.classList.remove('hidden');
+  overlayHidden.classList.remove('hidden');
+};
+
+const closeReset = function () {
+  resetDescHidden.classList.add('hidden');
+  overlayHidden.classList.add('hidden');
+};
+
+resetBtn.addEventListener(`click`, openReset);
+resetBtnHidden.addEventListener(`click`, () => {
+  resetHighscore(), closeReset();
+});
+closeBtnHidden.addEventListener(`click`, closeReset);
+resetDescHidden.addEventListener(`click`, closeReset);
+overlayHidden.addEventListener(`click`, closeReset);
+mainSection.addEventListener(`click`, closeReset);
 document.addEventListener(`DOMContentLoaded`, init);

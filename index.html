@@ -18,6 +18,15 @@
       <p class="message">Seriously, Try it!</p>
       <button class="again">Play Again!</button>
       <button class="reset">💥RESET💥</button>
+      <div class="overlay hidden"></div>
+      <div class="resetDescription hidden">
+        <button class="resetHidden">💥RESET💥</button>
+        <button class="closeHidden">&times;</button>
+        <p class="hiddenParagraph">
+          Once you activate the reset button, you will no longer have a high
+          score.
+        </p>
+      </div>
       <div
         id="mystery1"
         class="mystery"
@@ -27,7 +36,7 @@
         ???
       </div>
     </header>
-    <main>
+    <main class="main">
       <section class="left">
         <input type="text" class="guess" />
         <button class="submit">Submit!</button>
