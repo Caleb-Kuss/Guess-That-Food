@@ -239,10 +239,10 @@ table {
 
 .guess {
   position: relative;
-  min-width: 0%;
-  max-width: 100%;
+  align-self: center;
+  max-width: 75%;
   background-color: snow;
-  padding: 2vw;
+  padding: 1vw;
 }
 
 .attemptsTotal,
@@ -251,14 +251,14 @@ table {
 }
 
 .submit {
-  width: 35%;
+  width: 50%;
   align-self: center;
   position: relative;
   background-color: black;
   color: aqua;
   box-shadow: 5px 5px 5px red;
   font-weight: bold;
-  padding: 1vw;
+  padding: 1.5vh;
   margin: 1vh;
   cursor: pointer;
 }
