@@ -284,6 +284,7 @@ table {
   font-weight: bold;
   padding: 1.5vh;
   margin: 1vh;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
