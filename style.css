@@ -161,11 +161,12 @@ table {
   position: absolute;
   right: 1vw;
   top: 1vh;
-  padding: 0.5vw;
+  padding: 0.19em;
   border-radius: 5%;
   background-color: black;
   color: aqua;
   box-shadow: 5px 5px 5px red;
+  text-transform: uppercase;
   cursor: pointer;
 }
 .again:hover {
@@ -179,7 +180,7 @@ table {
   position: absolute;
   left: 1vw;
   top: 1vh;
-  padding: 0.5vw;
+  padding: 0em;
   border-radius: 5%;
   background-color: black;
   color: aqua;
