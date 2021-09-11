@@ -16,6 +16,7 @@ let wrongChoices = [
   `Wrong. Try Once More!`,
   `Incorrect. Don't Give Up`,
   `Nope, Keep On Trying`,
+  `You Can Do It!`,
 ];
 //code for game to work
 let food = getRandom(foodChoices);
@@ -45,6 +46,7 @@ const resetBtnHidden = document.querySelector(`.resetHidden`);
 const closeBtnHidden = document.querySelector(`.closeHidden`);
 const overlayHidden = document.querySelector(`.overlay`);
 const mainSection = document.querySelector(`.main`);
+const tableWin = document.querySelector(`td`);
 submitBtn.addEventListener(`click`, function () {
   const guess = document.querySelector(`.guess`).value;
   if (!guess) {
