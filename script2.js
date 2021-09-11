@@ -111,19 +111,6 @@ submitBtn.addEventListener(`click`, function () {
 food = getRandom(foodChoices);
 str = food.substring(0, 2); //runs the hint box.
 
-//hover effect for the hint
-// function changeHint() {
-//   document.getElementById('hint').style.backgroundColor = `black`;
-//   document.getElementById('hint').style.color = `aqua`;
-//   document.getElementById('hint').textContent = str;
-// }
-
-// function defaultText() {
-//   document.getElementById('hint').textContent = ``;
-//   document.getElementById('hint').style.backgroundColor = ``;
-// }
-//end of hint code
-
 food = getRandom(foodChoices);
 str = food.substring(0, 2);
 function changeText() {
@@ -141,10 +128,6 @@ function changeText() {
     mouseover.style.borderRadius = `5%`;
   }
 }
-
-// //code below is for HTML of #mystery
-// // onmouseover="changeText()"
-// // onmouseout="defaultText()"
 
 food = getRandom(foodChoices);
 str = food.substring(0, 2);
@@ -179,30 +162,29 @@ playAgain.addEventListener(`click`, function () {
   submitBtn.style.boxShadow = `5px 5px 5px red`;
   playAgain.style.boxShadow = `5px 5px 5px red`;
   resetBtn.style.boxShadow = `5px 5px 5px red`;
-  // document.getElementById('hint').style.backgroundColor = ``;
-  // document.getElementById('hint').style.color = ``;
   inputBox.style.color = ``;
   hiddenHint.style.width = `var(--mysteryWidth)`;
 });
 
-// resetBtn.addEventListener(`click`, function () {
-//   resetHighscore();
-// });//**reset button without MODAL**
-
-// Get the input field
-let input = document.querySelector('.guess');
-
-// Execute a function when the user releases a key on the keyboard
-input.addEventListener('keyup', function (event) {
-  // Number 13 is the "Enter" key on the keyboard
-  if (event.keyCode === 13) {
-    // Cancel the default action, if needed
-    event.preventDefault();
-    // Trigger the button element with a click
+// executes the submit button when the user presses the enter key--
+document.addEventListener(`keydown`, function (e) {
+  if (e.key === `Enter`) {
     submitBtn.click();
   }
 });
+//-----------------------------------------------------------------
 
+// Executes the close modal function when the user releases the Escape key---
+document.addEventListener(`keydown`, function (e) {
+  if (
+    e.key === `Escape` &&
+    !resetDescHidden.classList.contains(`hidden`) &&
+    !overlayHidden.classList.contains(`hidden`)
+  ) {
+    closeReset();
+  }
+});
+//---------------------------------------------------------------------------
 function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
@@ -233,21 +215,25 @@ function resetHighscore() {
   localStorage.removeItem(`HighScore`);
   init();
 }
-
+// open modal function
 const openReset = function () {
   resetDescHidden.classList.remove('hidden');
   overlayHidden.classList.remove('hidden');
 };
 
+//close modal function
 const closeReset = function () {
   resetDescHidden.classList.add('hidden');
   overlayHidden.classList.add('hidden');
 };
 
+//reset button inside modal
 resetBtn.addEventListener(`click`, openReset);
 resetBtnHidden.addEventListener(`click`, () => {
   resetHighscore(), closeReset();
 });
+
+//closing modal
 closeBtnHidden.addEventListener(`click`, closeReset);
 resetDescHidden.addEventListener(`click`, closeReset);
 overlayHidden.addEventListener(`click`, closeReset);
