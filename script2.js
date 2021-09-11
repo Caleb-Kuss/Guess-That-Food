@@ -46,14 +46,12 @@ const resetBtnHidden = document.querySelector(`.resetHidden`);
 const closeBtnHidden = document.querySelector(`.closeHidden`);
 const overlayHidden = document.querySelector(`.overlay`);
 const mainSection = document.querySelector(`.main`);
-const tableWin = document.querySelector(`td`);
 submitBtn.addEventListener(`click`, function () {
   const guess = document.querySelector(`.guess`).value;
   if (!guess) {
     //if nothing is in the input box it populates this line of code
     inputBox.style.color = `blue`;
     displayMessage(`You didn't even guess!`);
-    documentBody.style.backgroundColor = `blue`;
     submitBtn.style.boxShadow = `5px 5px 5px red`;
     playAgain.style.boxShadow = `5px 5px 5px red`;
   } else if (guess.toUpperCase() === food.toUpperCase()) {
@@ -67,7 +65,6 @@ submitBtn.addEventListener(`click`, function () {
     incrementTotAttempts();
     inputBox.style.color = `green`;
     displayMessage(`Great job! That's correct!`);
-    documentBody.style.backgroundColor = `green`;
     hiddenHint.style.backgroundColor = `black`;
     hiddenHint.style.color = `#add8e6`;
     hiddenHint.style.borderRadius = ``;
@@ -85,7 +82,6 @@ submitBtn.addEventListener(`click`, function () {
         displayMessage(choices);
         score--;
         attemptsLeft.textContent = score;
-        documentBody.style.backgroundColor = `red`;
         hiddenHint.style.color = `var(--mystery)`;
         submitBtn.style.boxShadow = `5px 5px 5px aqua`;
         playAgain.style.boxShadow = `5px 5px 5px aqua`;
@@ -98,13 +94,12 @@ submitBtn.addEventListener(`click`, function () {
       documentBody.style.backgroundColor = `black`;
       headerBorder.style.color = `aquamarine`;
       hiddenHint.style.width = `100%`;
-      hiddenHint.style.backgroundColor = `teal`;
+      hiddenHint.style.backgroundColor = `rgba(127, 255, 212, 0.8)`;
       hiddenHint.textContent = food;
       hiddenHint.style.fontSize = `1em`;
       hiddenHint.style.color = `white`;
       hiddenHint.style.borderRadius = ``;
       hiddenHint.textContent = food;
-      headerBorder.style.borderBottom = `7px solid aquamarine`;
       submitBtn.style.boxShadow = `5px 5px 5px red`;
       playAgain.style.boxShadow = `5px 5px 5px red`;
       resetBtn.style.boxShadow = `5px 5px 5px red`;
@@ -173,7 +168,6 @@ playAgain.addEventListener(`click`, function () {
   choices = getRandom(wrongChoices);
   str = food.substring(0, 2);
   displayMessage(`Seriously, Try it!`);
-  documentBody.style.backgroundColor = `rgb(39, 73, 73)`;
   attemptsLeft.textContent = score;
   inputBox.value = ``;
   hiddenHint.style.color = `var(--mystery)`;
@@ -182,7 +176,6 @@ playAgain.addEventListener(`click`, function () {
   hiddenHint.style.fontSize = `1em`;
   headerBorder.style.color = `aqua`;
   hiddenHint.style.backgroundColor = ``;
-  document.querySelector(`header`).style.borderBottom = `7px solid black`;
   submitBtn.style.boxShadow = `5px 5px 5px red`;
   playAgain.style.boxShadow = `5px 5px 5px red`;
   resetBtn.style.boxShadow = `5px 5px 5px red`;
