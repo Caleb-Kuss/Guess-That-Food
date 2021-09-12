@@ -158,6 +158,7 @@ table {
   background-color: black;
   color: aqua;
   width: 100%;
+  overflow: hidden;
 }
 
 .again {
