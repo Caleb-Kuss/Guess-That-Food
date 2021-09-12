@@ -140,6 +140,7 @@ tr {
   top: 0;
   bottom: 0;
   border: 1px solid aqua;
+  overflow: hidden;
 }
 
 td {
