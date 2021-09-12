@@ -140,19 +140,18 @@ tr {
   top: 0;
   bottom: 0;
   border: 1px solid aqua;
-  overflow: hidden;
 }
 
-td,
-th {
-  padding: 0.5em;
+td {
+  padding: 1em;
   font-size: xx-small;
 }
 
-thead,
-th {
+th,
+thead {
   background-color: aqua;
   color: black;
+  font-size: xx-small;
 }
 
 table {
