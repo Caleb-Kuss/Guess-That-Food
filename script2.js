@@ -2,14 +2,17 @@
 
 let foodChoices = [
   'Pizza',
-  'Cheese Burger',
+  'burgers',
   'Nachos',
   'Tacos',
   'Fish',
-  'Hot Dogs',
-  'Corn Dogs',
+  'Chili',
+  'lamb',
   'Chicken',
   'Ramen',
+  `sushi`,
+  `oatmeal`,
+  `mango`,
 ];
 let wrongChoices = [
   `Nope. Try Again`,
@@ -21,9 +24,10 @@ let wrongChoices = [
 //code for game to work
 let food = getRandom(foodChoices);
 let choices = getRandom(wrongChoices);
-let score = 7;
+let score = 10;
 let highscores = 0;
 let lifeTimeAttempts = 0;
+let playing = true;
 const displayMessage = function (message) {
   document.querySelector(`.message`).textContent = message;
 };
@@ -46,68 +50,95 @@ const resetBtnHidden = document.querySelector(`.resetHidden`);
 const closeBtnHidden = document.querySelector(`.closeHidden`);
 const overlayHidden = document.querySelector(`.overlay`);
 const mainSection = document.querySelector(`.main`);
+
+const startUp = function () {
+  playing = true;
+  score = 10;
+  food = getRandom(foodChoices);
+  choices = getRandom(wrongChoices);
+  str = food.substring(0, 2);
+  displayMessage(`Seriously, Try it!`);
+  attemptsLeft.textContent = score;
+  inputBox.value = ``;
+  hiddenHint.style.color = `var(--mystery)`;
+  hiddenHint.style.padding = `0.3em`;
+  hiddenHint.textContent = `???`;
+  hiddenHint.style.fontSize = `1em`;
+  headerBorder.style.color = `aqua`;
+  hiddenHint.style.backgroundColor = ``;
+  submitBtn.style.boxShadow = `5px 5px 5px red`;
+  playAgain.style.boxShadow = `5px 5px 5px red`;
+  resetBtn.style.boxShadow = `5px 5px 5px red`;
+  inputBox.style.color = ``;
+  hiddenHint.style.width = `var(--mysteryWidth)`;
+};
+
 submitBtn.addEventListener(`click`, function () {
   const guess = document.querySelector(`.guess`).value;
-  if (!guess) {
-    //if nothing is in the input box it populates this line of code
-    inputBox.style.color = `blue`;
-    displayMessage(`You didn't even guess!`);
-    submitBtn.style.boxShadow = `5px 5px 5px red`;
-    playAgain.style.boxShadow = `5px 5px 5px red`;
-  } else if (guess.toUpperCase() === food.toUpperCase()) {
-    //no longer case sensitive
-    //if the input === random food populates this code
-    if (score > highscores) {
-      highscores = score;
-      highScoreNumber(highscores);
-      saveHighScore(score);
-    }
-    incrementTotAttempts();
-    inputBox.style.color = `green`;
-    displayMessage(`Great job! That's correct!`);
-    hiddenHint.style.backgroundColor = `black`;
-    hiddenHint.style.color = `#add8e6`;
-    hiddenHint.style.borderRadius = ``;
-    hiddenHint.style.width = `100%`;
-    hiddenHint.textContent = food;
-    submitBtn.style.boxShadow = `5px 5px 5px aqua`;
-    playAgain.style.boxShadow = `5px 5px 5px aqua`;
-    resetBtn.style.boxShadow = `5px 5px 5px aqua`;
-  } else if (guess != food)
-    if (score > 0) {
-      //if input != to food populates this
-      {
-        incrementTotAttempts();
-        choices = getRandom(wrongChoices);
-        displayMessage(choices);
-        score--;
-        attemptsLeft.textContent = score;
-        hiddenHint.style.color = `var(--mystery)`;
-        submitBtn.style.boxShadow = `5px 5px 5px aqua`;
-        playAgain.style.boxShadow = `5px 5px 5px aqua`;
-        resetBtn.style.boxShadow = `5px 5px 5px aqua`;
-        inputBox.style.color = `red`;
-      }
-    } else {
-      //this populates when no more attempts exist
-      displayMessage(`Better luck next time.`);
-      documentBody.style.backgroundColor = `black`;
-      headerBorder.style.color = `aquamarine`;
-      hiddenHint.style.width = `100%`;
-      hiddenHint.style.backgroundColor = `rgba(127, 255, 212, 0.8)`;
-      hiddenHint.textContent = food;
-      hiddenHint.style.fontSize = `1em`;
-      hiddenHint.style.color = `white`;
-      hiddenHint.style.borderRadius = ``;
-      hiddenHint.textContent = food;
+  if (playing) {
+    if (!guess) {
+      //if nothing is in the input box it populates this line of code
+      inputBox.style.color = `blue`;
+      displayMessage(`You didn't even guess!`);
       submitBtn.style.boxShadow = `5px 5px 5px red`;
       playAgain.style.boxShadow = `5px 5px 5px red`;
-      resetBtn.style.boxShadow = `5px 5px 5px red`;
-      hiddenHintId.textContent = food;
-      inputBox.style.color = `black`;
-    }
-});
+    } else if (guess.toUpperCase() === food.toUpperCase()) {
+      //no longer case sensitive
+      //if the input === random food populates this code
+      if (score > highscores) {
+        highscores = score;
+        highScoreNumber(highscores);
+        saveHighScore(score);
+      }
+      playing = false;
+      incrementTotAttempts();
+      inputBox.style.color = `green`;
+      displayMessage(`Great job! That's correct!`);
+      hiddenHint.style.backgroundColor = `black`;
+      hiddenHint.style.color = `#add8e6`;
+      hiddenHint.style.borderRadius = ``;
+      hiddenHint.style.width = `100%`;
+      hiddenHint.textContent = food;
+      submitBtn.style.boxShadow = `5px 5px 5px aqua`;
+      playAgain.style.boxShadow = `5px 5px 5px aqua`;
+      resetBtn.style.boxShadow = `5px 5px 5px aqua`;
+    } else if (guess != food)
+      if (score > 0) {
+        //if input != to food populates this
+        {
+          incrementTotAttempts();
+          choices = getRandom(wrongChoices);
+          displayMessage(choices);
+          score--;
+          attemptsLeft.textContent = score;
+          hiddenHint.style.color = `var(--mystery)`;
+          submitBtn.style.boxShadow = `5px 5px 5px aqua`;
+          playAgain.style.boxShadow = `5px 5px 5px aqua`;
+          resetBtn.style.boxShadow = `5px 5px 5px aqua`;
+          inputBox.style.color = `red`;
+        }
+      } else {
+        //this populates when no more attempts exist
 
+        displayMessage(`Better luck next time.`);
+        documentBody.style.backgroundColor = `black`;
+        headerBorder.style.color = `aquamarine`;
+        hiddenHint.style.width = `100%`;
+        hiddenHint.style.backgroundColor = `rgba(127, 255, 212, 0.8)`;
+        hiddenHint.textContent = food;
+        hiddenHint.style.fontSize = `1em`;
+        hiddenHint.style.color = `white`;
+        hiddenHint.style.borderRadius = ``;
+        hiddenHint.textContent = food;
+        submitBtn.style.boxShadow = `5px 5px 5px red`;
+        playAgain.style.boxShadow = `5px 5px 5px red`;
+        resetBtn.style.boxShadow = `5px 5px 5px red`;
+        hiddenHintId.textContent = food;
+        inputBox.style.color = `black`;
+      }
+  }
+});
+console.log(submitBtn, inputBox);
 food = getRandom(foodChoices);
 str = food.substring(0, 2); //runs the hint box.
 
@@ -145,26 +176,7 @@ function defaultText() {
 } //---- end of mystery code----
 
 //code for play again button to reset everything
-playAgain.addEventListener(`click`, function () {
-  score = 7;
-  food = getRandom(foodChoices);
-  choices = getRandom(wrongChoices);
-  str = food.substring(0, 2);
-  displayMessage(`Seriously, Try it!`);
-  attemptsLeft.textContent = score;
-  inputBox.value = ``;
-  hiddenHint.style.color = `var(--mystery)`;
-  hiddenHint.style.padding = `0.3em`;
-  hiddenHint.textContent = `???`;
-  hiddenHint.style.fontSize = `1em`;
-  headerBorder.style.color = `aqua`;
-  hiddenHint.style.backgroundColor = ``;
-  submitBtn.style.boxShadow = `5px 5px 5px red`;
-  playAgain.style.boxShadow = `5px 5px 5px red`;
-  resetBtn.style.boxShadow = `5px 5px 5px red`;
-  inputBox.style.color = ``;
-  hiddenHint.style.width = `var(--mysteryWidth)`;
-});
+playAgain.addEventListener(`click`, startUp);
 
 // executes the submit button when the user presses the enter key--
 document.addEventListener(`keydown`, function (e) {

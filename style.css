@@ -134,16 +134,18 @@ tr {
   display: flex;
   flex-basis: 100%;
   justify-content: space-around;
+  align-items: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   border: 1px solid aqua;
-  border-collapse: collapse;
-  padding: 0.15em;
 }
 
 td,
 th {
-  text-align: center;
   padding: 0.5em;
-  font-size: 1.7vh;
+  font-size: xx-small;
 }
 
 thead,
@@ -155,6 +157,7 @@ th {
 table {
   background-color: black;
   color: aqua;
+  width: 100%;
 }
 
 .again {
