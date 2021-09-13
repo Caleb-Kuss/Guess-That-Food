@@ -152,7 +152,7 @@ function changeText() {
     mouseover.textContent = food;
   } else if (score > 0) {
     (mouseover.textContent = str),
-      (mouseover.style.fontSize = '2.5vh'),
+      (mouseover.style.fontSize = '1em'),
       (mouseover.style.backgroundColor = 'black'),
       (mouseover.style.color = '#add8e6');
     mouseover.style.width = `var(--mysteryWidth)`;
@@ -169,7 +169,7 @@ function defaultText() {
     mouseout.textContent = food;
   } else if (score > 0) {
     mouseout.textContent = '???';
-    mouseout.style.fontSize = '2.5vh';
+    mouseout.style.fontSize = '1em';
     mouseout.style.backgroundColor = '';
     mouseout.style.color = 'var(--mystery)';
   }
