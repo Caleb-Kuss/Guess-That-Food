@@ -225,6 +225,7 @@ function incrementTotAttempts() {
 //-----find a perm fix. reload is quick fix-----
 function resetHighscore() {
   localStorage.removeItem(`HighScore`);
+  startUp();
   location.reload();
   init();
   return false;
