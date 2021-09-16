@@ -222,10 +222,12 @@ function incrementTotAttempts() {
   localStorage.setItem(`Attempts`, lifeTimeAttempts);
   document.querySelector(`.attemptsTotal`).textContent = lifeTimeAttempts;
 }
-
+//-----find a perm fix. reload is quick fix-----
 function resetHighscore() {
   localStorage.removeItem(`HighScore`);
+  location.reload();
   init();
+  return false;
 }
 // open modal function
 const openReset = function () {
