@@ -31,9 +31,10 @@ let playing = true;
 const displayMessage = function (message) {
   document.querySelector(`.message`).textContent = message;
 };
-
+//added highscores=Number-- to ensure it finds it and adds to page
 const highScoreNumber = function (highScore) {
   document.querySelector(`.highScoreNumber`).textContent = highScore;
+  highscores = Number(highScore || 0);
 };
 
 const documentBody = document.querySelector(`body`);
@@ -173,7 +174,7 @@ function defaultText() {
     mouseout.style.backgroundColor = '';
     mouseout.style.color = 'var(--mystery)';
   }
-} //---- end of mystery code----
+} //---- end of mystery box----
 
 //code for play again button to reset everything
 playAgain.addEventListener(`click`, startUp);
@@ -206,12 +207,16 @@ function saveHighScore(maxScore) {
   if (!everlastingHighScore || everlastingHighScore <= maxScore) {
     localStorage.setItem(`HighScore`, maxScore);
     highScoreNumber(maxScore);
+  } else {
   }
 }
 //F2 change names everywhere faster
+
+//-----added currentHighScore since two names for highScoreNumber-----
 function init() {
   const findScore = localStorage.getItem(`HighScore`);
-  highScoreNumber(findScore || 0);
+  const currentHighestScore = findScore ? Number(findScore) : 0;
+  highScoreNumber(currentHighestScore);
   const findTotalAttempts = Number(localStorage.getItem(`Attempts`));
   document.querySelector(`.attemptsTotal`).textContent = findTotalAttempts || 0;
   lifeTimeAttempts = findTotalAttempts || 0;
@@ -226,9 +231,7 @@ function incrementTotAttempts() {
 function resetHighscore() {
   localStorage.removeItem(`HighScore`);
   startUp();
-  location.reload();
   init();
-  return false;
 }
 // open modal function
 const openReset = function () {
