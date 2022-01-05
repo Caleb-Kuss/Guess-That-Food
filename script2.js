@@ -28,6 +28,8 @@ let score = 10;
 let highscores = 0;
 let lifeTimeAttempts = 0;
 let playing = true;
+let mysteryStr = food.substring(0, 2);
+
 const displayMessage = function (message) {
   document.querySelector(`.message`).textContent = message;
 };
@@ -59,7 +61,7 @@ const startUp = function () {
   score = 10;
   food = getRandom(foodChoices);
   choices = getRandom(wrongChoices);
-  str = food.substring(0, 2);
+  mysteryStr = food.substring(0, 2);
   displayMessage(`Seriously, Try it!`);
   attemptsLeft.textContent = score;
   inputBox.value = ``;
@@ -141,7 +143,6 @@ submitBtn.addEventListener(`click`, function () {
   }
 });
 
-str = food.substring(0, 2);
 function changeText() {
   //----controls hover of the mystery box----
   let mouseover = document.getElementById(`mystery1`);
@@ -149,7 +150,7 @@ function changeText() {
   if (guess.toUpperCase() === food.toUpperCase()) {
     mouseover.textContent = food;
   } else if (score > 0) {
-    (mouseover.textContent = str),
+    (mouseover.textContent = mysteryStr),
       (mouseover.style.fontSize = '1em'),
       (mouseover.style.backgroundColor = 'black'),
       (mouseover.style.color = '#add8e6');
