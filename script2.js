@@ -37,6 +37,7 @@ const highScoreNumber = function (highScore) {
   highscores = Number(highScore || 0);
 };
 
+// Grab elements
 const documentBody = document.querySelector(`body`);
 const submitBtn = document.querySelector(`.submit`);
 const inputBox = document.querySelector(`.guess`);
@@ -52,6 +53,7 @@ const closeBtnHidden = document.querySelector(`.closeHidden`);
 const overlayHidden = document.querySelector(`.overlay`);
 const mainSection = document.querySelector(`.main`);
 
+// Starts the game
 const startUp = function () {
   playing = true;
   score = 10;
@@ -70,7 +72,7 @@ const startUp = function () {
   submitBtn.style.boxShadow = `5px 5px 5px red`;
   playAgain.style.boxShadow = `5px 5px 5px red`;
   resetBtn.style.boxShadow = `5px 5px 5px red`;
-  inputBox.style.color = ``;
+  inputBox.style.boxShadow = `none`;
   hiddenHint.style.width = `var(--mysteryWidth)`;
 };
 
@@ -79,12 +81,11 @@ submitBtn.addEventListener(`click`, function () {
   if (playing) {
     if (!guess) {
       //if nothing is in the input box it populates this line of code
-      inputBox.style.color = `blue`;
+      inputBox.style.boxShadow = `inset 1px 1px 10px blue`;
       displayMessage(`You didn't even guess!`);
       submitBtn.style.boxShadow = `5px 5px 5px red`;
       playAgain.style.boxShadow = `5px 5px 5px red`;
     } else if (guess.toUpperCase() === food.toUpperCase()) {
-      //no longer case sensitive
       //if the input === random food populates this code
       if (score > highscores) {
         highscores = score;
@@ -93,7 +94,7 @@ submitBtn.addEventListener(`click`, function () {
       }
       playing = false;
       incrementTotAttempts();
-      inputBox.style.color = `green`;
+      inputBox.style.boxShadow = `inset 1px 1px 10px green`;
       displayMessage(`Great job! That's correct!`);
       hiddenHint.style.backgroundColor = `black`;
       hiddenHint.style.color = `#add8e6`;
@@ -105,19 +106,19 @@ submitBtn.addEventListener(`click`, function () {
       resetBtn.style.boxShadow = `5px 5px 5px aqua`;
     } else if (guess != food)
       if (score > 0) {
-        //if input != to food populates this
-        {
-          incrementTotAttempts();
-          choices = getRandom(wrongChoices);
-          displayMessage(choices);
-          score--;
-          attemptsLeft.textContent = score;
-          hiddenHint.style.color = `var(--mystery)`;
-          submitBtn.style.boxShadow = `5px 5px 5px aqua`;
-          playAgain.style.boxShadow = `5px 5px 5px aqua`;
-          resetBtn.style.boxShadow = `5px 5px 5px aqua`;
-          inputBox.style.color = `red`;
-        }
+        //if input != to food this populates
+
+        incrementTotAttempts();
+        choices = getRandom(wrongChoices);
+        inputBox.value = null;
+        displayMessage(choices);
+        score--;
+        attemptsLeft.textContent = score;
+        hiddenHint.style.color = `var(--mystery)`;
+        submitBtn.style.boxShadow = `5px 5px 5px aqua`;
+        playAgain.style.boxShadow = `5px 5px 5px aqua`;
+        resetBtn.style.boxShadow = `5px 5px 5px aqua`;
+        inputBox.style.boxShadow = `inset 1px 1px 10px red`;
       } else {
         //this populates when no more attempts exist
 
@@ -135,15 +136,11 @@ submitBtn.addEventListener(`click`, function () {
         playAgain.style.boxShadow = `5px 5px 5px red`;
         resetBtn.style.boxShadow = `5px 5px 5px red`;
         hiddenHintId.textContent = food;
-        inputBox.style.color = `black`;
+        inputBox.style.boxShadow = `none`;
       }
   }
 });
-console.log(submitBtn, inputBox);
-food = getRandom(foodChoices);
-str = food.substring(0, 2); //runs the hint box.
 
-food = getRandom(foodChoices);
 str = food.substring(0, 2);
 function changeText() {
   //----controls hover of the mystery box----
@@ -161,8 +158,7 @@ function changeText() {
   }
 }
 
-food = getRandom(foodChoices);
-str = food.substring(0, 2);
+//---Control mouseout of mystery box---
 function defaultText() {
   let mouseout = document.getElementById(`mystery1`);
   guess = document.querySelector(`.guess`).value;
@@ -176,7 +172,7 @@ function defaultText() {
   }
 } //---- end of mystery box----
 
-//code for play again button to reset everything
+//code for  the play again button to reset everything
 playAgain.addEventListener(`click`, startUp);
 
 // executes the submit button when the user presses the enter key--
@@ -198,10 +194,12 @@ document.addEventListener(`keydown`, function (e) {
   }
 });
 //---------------------------------------------------------------------------
+//---Randomizes the array of foods---
 function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
+//---Sets the highscore of the user locally---
 function saveHighScore(maxScore) {
   const everlastingHighScore = Number(localStorage.getItem(`HighScore`));
   if (!everlastingHighScore || everlastingHighScore <= maxScore) {
@@ -210,9 +208,8 @@ function saveHighScore(maxScore) {
   } else {
   }
 }
-//F2 change names everywhere faster
 
-//-----added currentHighScore since two names for highScoreNumber-----
+//--- On load this code runs to check if the user has a score.---
 function init() {
   const findScore = localStorage.getItem(`HighScore`);
   const currentHighestScore = findScore ? Number(findScore) : 0;
@@ -222,17 +219,20 @@ function init() {
   lifeTimeAttempts = findTotalAttempts || 0;
 }
 
+//--- Score incrementor---
 function incrementTotAttempts() {
   lifeTimeAttempts++;
   localStorage.setItem(`Attempts`, lifeTimeAttempts);
   document.querySelector(`.attemptsTotal`).textContent = lifeTimeAttempts;
 }
+
 //-----find a perm fix. reload is quick fix-----
 function resetHighscore() {
   localStorage.removeItem(`HighScore`);
   startUp();
   init();
 }
+
 // open modal function
 const openReset = function () {
   resetDescHidden.classList.remove('hidden');
@@ -256,4 +256,5 @@ closeBtnHidden.addEventListener(`click`, closeReset);
 resetDescHidden.addEventListener(`click`, closeReset);
 overlayHidden.addEventListener(`click`, closeReset);
 mainSection.addEventListener(`click`, closeReset);
+//--- End of modal code ---
 document.addEventListener(`DOMContentLoaded`, init);
